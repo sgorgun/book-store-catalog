@@ -129,7 +129,7 @@ Add a new public class to the [NameIdentifier.cs](BookStoreCatalog/NameIdentifie
 * Constructor
     * The class must have a public constructor with `isniCode` parameter that validates the ISNI code and initializes the `code` field with the given argument.
     * The constructor must use the `ValidateCode` method to validate a `isniCode` argument.
-    * Add a [guard clause](https://www.google.com/search?q=guard+clause) to throw an `ArgumentNullException` in case the `isniCode` argument is `null`.
+    * Add a guard clause to throw an `ArgumentNullException` in case the `isniCode` argument is `null`.
 * Instance Methods
     * The class must have the `GetUri` method that must return an *Uri* object that is initialized with the link to a relevant search page on the [isni.org](https://isni.org/) website.
     * The class must override `ToString` method to return the value of the `code` field.
