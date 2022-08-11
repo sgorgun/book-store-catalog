@@ -125,7 +125,7 @@ Add a new public class to the [NameIdentifier.cs](BookStoreCatalog/NameIdentifie
 * Static Methods
     * The class must have the private static method `ValidateCode` to validate the ISNI code. The method must return `true` if the `isniCode` method argument has a valid ISNI code.
 * Properties
-    * The class must have the public [auto-implemented property](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties) `Code` to access the `amount` field. The property must have both get and [init accessors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties#the-init-accessor). The property type must be `string`.
+    * The class must have the public [auto-implemented property](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties) `Code` to access the `code` field. The property must have both get and [init accessors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties#the-init-accessor). The property type must be `string`.
 * Constructor
     * The class must have a public constructor with `isniCode` parameter that validates the ISNI code and initializes the `code` field with the given argument.
     * The constructor must use the `ValidateCode` method to validate a `isniCode` argument.
@@ -177,9 +177,9 @@ Add a new public class to the [BookPublication.cs](BookStoreCatalog/BookPublicat
     * All properties must have a public get and init accessors.
 * Constructor
     * The class must have three public constructors.
-    * The class must have a constructor to initialize an object with `authorName` and `isbnCode` string arguments.
-    * The class must have a constructor to initialize an object with `authorName`, `isniCode` and `isbnCode` string arguments.
-    * The class must have a constructor to initialize an object with `author` argument of the `BookAuthor` type and `isbn` argument of the `BookNumber` type.
+    * The class must have a constructor to initialize an object with `authorName`, `title`, `publisher`, `published`, `bookBinding` and `isbnCode` arguments. See the class diagram above for argument types.
+    * The class must have a constructor to initialize an object with `authorName`, `isniCode`, `title`, `publisher`, `published`, `bookBinding` and `isbnCode` arguments. See the class diagram above for argument types.
+    * The class must have a constructor to initialize an object with `author`, `title`, `publisher`, `published`, `bookBinding` and `isbn` arguments. See the class diagram above for argument types.
     * Add guard clauses to throw an `ArgumentNullException` if any of the constructor arguments is `null`.
     * Add guard clauses to throw an `ArgumentException` if the `title` or `publisher` argument is empty or contains only white-space characters.
     * To remove the code duplication, use the constructor chaining approach.
@@ -235,3 +235,23 @@ Go through the list of requirements, and make sure that you correctly implemente
 | ToString override              | +          | +         | +              | +          | +               | +             |
 | Constructor declaration        | +          | +         | +              | +          | +               | +             |
 | Constructor chaining           |            | +         |                | +          | +               | +             |
+
+
+### Questions
+
+* What is the difference between the private field and the private readonly field?
+* What is the purpose of the class constructor?
+* When do you need to declare the parameterless constructor in your class?
+* When it makes sense to use the constructor chaining approach?
+* What is the class property?
+* What is the difference between the public and the private set accessors?
+* What is the difference between the private set and the init accessors?
+* What is the purpose of the init accessor?
+* What is the auto-implemented property?
+* What is the purpose of the *ToString* method?
+* Why do you need to override the *ToString* method in your class?
+* What is an immutable object?
+* How to make a class immutable?
+* What types can be implemented as structs? Use the [Choosing Between Class and Struct](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct) guide.
+
+Discuss your answers with your trainer or your mentor, if you work in a regular group.
