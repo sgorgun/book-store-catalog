@@ -58,7 +58,15 @@ namespace BookStoreCatalog.Tests
         {
             new object[]
             {
-                "Edgar Allan Poe", "0000000121354025", "Complete Stories and Poems of Edgar Allan Poe", "Doubleday", new DateTime(1966, 11, 18), BookBindingKind.Hardcover, "0385074077", 10.11m, "USD", 3, "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe (ISNI:0000000121354025), 10.11 USD, 3",
+                "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe (ISNI:0000000121354025), 10.11 USD, 3", new object[] { "Edgar Allan Poe", "0000000121354025", "Complete Stories and Poems of Edgar Allan Poe", "Doubleday", new DateTime(1966, 11, 18), BookBindingKind.Hardcover, "0385074077", 10.11m, "USD", 3 },
+            },
+            new object[]
+            {
+                "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe, 123.12 EUR, 3", new object[] { new BookPublication("Edgar Allan Poe", "Complete Stories and Poems of Edgar Allan Poe", "Doubleday", new DateTime(1966, 11, 18), BookBindingKind.Hardcover, "0385074077"), new BookPrice(123.123m, "EUR"), 3 },
+            },
+            new object[]
+            {
+                "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe, \"123,456,789.12 GDP\", 123456789", new object[] { new BookPublication("Edgar Allan Poe", "Complete Stories and Poems of Edgar Allan Poe", "Doubleday", new DateTime(1966, 11, 18), BookBindingKind.Hardcover, "0385074077"), new BookPrice(123456789.123m, "GDP"), 123456789 },
             },
         };
 
@@ -259,10 +267,10 @@ namespace BookStoreCatalog.Tests
         }
 
         [TestCaseSource(nameof(ToStringData))]
-        public void ToString_ReturnsString(string authorName, string isniCode, string title, string publisher, DateTime published, BookBindingKind bookBinding, string isbnCode, decimal priceAmount, string priceCurrency, int amount, string expectedString)
+        public void ToString_ReturnsString(string expectedString, object[] constructorParameters)
         {
             // Arrange
-            var bookStoreItem = new BookStoreItem(authorName: authorName, isniCode: isniCode, title: title, publisher: publisher, published: published, bookBinding: bookBinding, isbn: isbnCode, priceAmount: priceAmount, priceCurrency: priceCurrency, amount: amount);
+            var bookStoreItem = (BookStoreItem)Activator.CreateInstance(this.ClassType, constructorParameters);
 
             // Act
             string actualString = bookStoreItem.ToString();

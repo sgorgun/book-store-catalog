@@ -222,7 +222,10 @@ Add a new public class to the [BookStoreItem.cs](BookStoreCatalog/BookStoreItem.
     * Add guard clauses to throw an `ArgumentNullException` if the set value of the `Publication` or `Price` properties is `null`.
     * Add guard clause to throw an `ArgumentOutOfRangeException` if the set value of the `Amount` property is less zero.
 * Instance Methods
-    * The class must override `ToString` method to return the concatenation of the `publication`, `price` and `amount` string representations separated with comma - "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe (ISNI:0000000121354025), 10.11 USD, 3".
+    * The class must override [ToString](https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring) method to return the string representation of the `BookStoreItem` object.
+        * If an ISNI is not set, the `ToString` method must return the result string with `title`, `authorName`, `price`, `currency` and `amount` values - "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe, 10.11 USD, 3".
+        * If an ISNI is set, the `ToString` method must return the result string with `title`, `authorName`, `isni`, `price`, `currency` and `amount` values - "Complete Stories and Poems of Edgar Allan Poe, Edgar Allan Poe (ISNI:0000000121354025), 10.11 USD, 0".
+        * If a string representation of a price value contains a comma, wrap the price string with quotation marks - "\"123,456,789.12 EUR\"".
 
 
 ### Checklist
