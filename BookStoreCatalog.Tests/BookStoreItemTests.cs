@@ -58,7 +58,7 @@ namespace BookStoreCatalog.Tests
         {
             new object[]
             {
-                "Edgar Allan Poe", "0000000121354025", "Complete Stories and Poems of Edgar Allan Poe", "Doubleday", new DateTime(1966, 11, 18), BookBindingKind.Hardcover, "0385074077", 10.11m, "USD", 3, "",
+                "Edgar Allan Poe", "0000000121354025", "Complete Stories and Poems of Edgar Allan Poe", "Doubleday", new DateTime(1966, 11, 18), BookBindingKind.Hardcover, "0385074077", 10.11m, "USD", 3, "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe (ISNI:0000000121354025), 10.11 USD, 3",
             },
         };
 
@@ -291,7 +291,7 @@ namespace BookStoreCatalog.Tests
             Assert.AreEqual(3, this.ClassType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic).Length);
 
             Assert.AreEqual(0, this.ClassType.GetConstructors(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).Length);
-            Assert.AreEqual(3, this.ClassType.GetConstructors(BindingFlags.Instance | BindingFlags.Public).Length);
+            Assert.AreEqual(2, this.ClassType.GetConstructors(BindingFlags.Instance | BindingFlags.Public).Length);
             Assert.AreEqual(0, this.ClassType.GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic).Length);
 
             Assert.AreEqual(0, this.ClassType.GetProperties(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).Length);
