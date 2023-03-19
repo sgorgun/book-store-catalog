@@ -99,7 +99,7 @@ Add a new [public](https://docs.microsoft.com/en-us/dotnet/csharp/programming-gu
     * Add a guard clause to throw an [ArgumentNullException](https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception) in case the `isbnCode` argument is `null`.
 * Instance Methods
     * The class must have the `GetSearchUri` method that must return an [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri) object that is initialized with the link to a relevant search page on the [isbnsearch.org](https://isbnsearch.org/) website.
-    * The class must override [ToString](https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring) method to return the value of the `code` field.
+    * The class must have [ToString](https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring) method to return the value of the `code` field.
 
 
 ### BookPrice Class
