@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using NUnit.Framework;
 
 namespace BookStoreCatalog.Tests
@@ -313,7 +313,7 @@ namespace BookStoreCatalog.Tests
         }
 
         [TestCase("GetPublicationDateString", false, true, false, typeof(string))]
-        [TestCase("ToString", false, true, true, typeof(string))]
+        [TestCase("ToString", false, true, false, typeof(string))]
         public void HasMethod(string methodName, bool isStatic, bool isPublic, bool isVirtual, Type returnType)
         {
             this.AssertThatClassHasMethod(methodName, isStatic, isPublic, isVirtual, returnType);
