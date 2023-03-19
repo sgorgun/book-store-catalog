@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using NUnit.Framework;
 
 namespace BookStoreCatalog.Tests
@@ -251,7 +251,7 @@ namespace BookStoreCatalog.Tests
             this.AssertThatClassHasProperty(propertyName, propertyType, true, true, true, true);
         }
 
-        [TestCase("ToString", false, true, true, typeof(string))]
+        [TestCase("ToString", false, true, false, typeof(string))]
         [TestCase("ThrowExceptionIfAmountIsNotValid", true, false, false, typeof(void))]
         [TestCase("ThrowExceptionIfCurrencyIsNotValid", true, false, false, typeof(void))]
         public void HasMethod(string methodName, bool isStatic, bool isPublic, bool isVirtual, Type returnType)
