@@ -43,7 +43,7 @@ A valid ISBN attribute must follow these rules:
 
 To calculate the ISBN-10 checksum, use this formula:
 
-$`checksum = \sum_{i=1}^{10}(11-i)x_i=x_1·10+x_2·9+x_3·8+x_4·7+x_5·6+x_6·5+x_7·4+x_8·3+x_9·2+x_{10}·1`$,
+$`checksum = \sum_{i=1}^{10}(11-i)x_i=x_1Â·10+x_2Â·9+x_3Â·8+x_4Â·7+x_5Â·6+x_6Â·5+x_7Â·4+x_8Â·3+x_9Â·2+x_{10}Â·1`$,
 
 where $`x_i`$ is the *i*th digit.
 
@@ -125,7 +125,7 @@ Add a new public class to the [BookPrice.cs](BookStoreCatalog/BookPrice.cs) file
     * The constructor with parameters must use the `ThrowExceptionIfAmountIsNotValid` and `ThrowExceptionIfCurrencyIsNotValid` methods to validate the constructor arguments.
     * To remove the code duplication, use the [constructor chaining approach](https://www.google.com/search?q=constructor+chaining+in+c%23).
 * Instance Methods
-    * The class must override [ToString](https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring) method. The method must return the string with the values of the `amount` and `currency` fields - "1,234.56 EUR".
+    * The class must have [ToString](https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring) method. The method must return the string with the values of the `amount` and `currency` fields - "1,234.56 EUR".
 
 
 ### NameIdentifier Class
@@ -145,7 +145,7 @@ Add a new public class to the [NameIdentifier.cs](BookStoreCatalog/NameIdentifie
     * Add a guard clause to throw an `ArgumentNullException` in case the `isniCode` argument is `null`.
 * Instance Methods
     * The class must have the `GetUri` method that must return an *Uri* object that is initialized with the link to an author page on the [isni.org](https://isni.org/) website.
-    * The class must override `ToString` method to return the value of the `code` field.
+    * The class must have `ToString` method to return the value of the `code` field.
 
 
 ### BookAuthor Class
@@ -167,7 +167,7 @@ Add a new public class to the [BookAuthor.cs](BookStoreCatalog/BookAuthor.cs) fi
     * Add a guard clause to throw an `ArgumentNullException` in case the `authorName` or `isni` argument is `null`.
     * To remove the code duplication, use the constructor chaining approach.
 * Instance Methods
-    * The class must override `ToString` method to return the string representation of an object. If a ISNI is not set, the `ToString` method must return a value of the `AuthorName` property. If a ISNI is set, the `ToString` method must return values of the `AuthorName` and `Isni` properties - "Edgar Allan Poe (ISNI:0000000121354025)".
+    * The class must have `ToString` method to return the string representation of an object. If a ISNI is not set, the `ToString` method must return a value of the `AuthorName` property. If a ISNI is set, the `ToString` method must return values of the `AuthorName` and `Isni` properties - "Edgar Allan Poe (ISNI:0000000121354025)".
 
 
 ### BookPublication Class
@@ -194,7 +194,7 @@ Add a new public class to the [BookPublication.cs](BookStoreCatalog/BookPublicat
     * To remove the code duplication, use the constructor chaining approach.
 * Instance Methods
     * The class must have the `GetPublicationDateString` method that must return the `published` date as a string - "November, 1966".
-    * The class must override `ToString` method to return the string representation of an object - "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe".
+    * The class must have `ToString` method to return the string representation of an object - "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe".
 
 
 ### BookStoreItem Class
@@ -222,7 +222,7 @@ Add a new public class to the [BookStoreItem.cs](BookStoreCatalog/BookStoreItem.
     * Add guard clauses to throw an `ArgumentNullException` if the set value of the `Publication` or `Price` properties is `null`.
     * Add guard clause to throw an `ArgumentOutOfRangeException` if the set value of the `Amount` property is less zero.
 * Instance Methods
-    * The class must override [ToString](https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring) method to return the string representation of the `BookStoreItem` object.
+    * The class must have [ToString](https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring) method to return the string representation of the `BookStoreItem` object.
         * If an ISNI is not set, the `ToString` method must return the result string with `title`, `authorName`, `price`, `currency` and `amount` values - "Complete Stories and Poems of Edgar Allan Poe by Edgar Allan Poe, 10.11 USD, 3".
         * If an ISNI is set, the `ToString` method must return the result string with `title`, `authorName`, `isni`, `price`, `currency` and `amount` values - "Complete Stories and Poems of Edgar Allan Poe, Edgar Allan Poe (ISNI:0000000121354025), 10.11 USD, 0".
         * If a string representation of a price value contains a comma, wrap the price string with quotation marks - "\"123,456,789.12 EUR\"".
