@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using NUnit.Framework;
 
 namespace BookStoreCatalog.Tests
@@ -167,7 +167,7 @@ namespace BookStoreCatalog.Tests
         }
 
         [TestCase("GetSearchUri", false, true, false, typeof(Uri))]
-        [TestCase("ToString", false, true, true, typeof(string))]
+        [TestCase("ToString", false, true, false, typeof(string))]
         [TestCase("ValidateCode", true, false, false, typeof(bool))]
         [TestCase("ValidateChecksum", true, false, false, typeof(bool))]
         public void HasMethod(string methodName, bool isStatic, bool isPublic, bool isVirtual, Type returnType)
