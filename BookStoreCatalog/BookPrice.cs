@@ -48,13 +48,15 @@ namespace BookStoreCatalog
             get => this.currency;
             set => ThrowExceptionIfCurrencyIsNotValid(value, nameof(value));
         }
+
         /// <summary>
         /// Returns the string that represents a current object.
         /// </summary>
         /// <returns>A string that represents the current object.</returns>
-        public override string ToString() => string.Format(CultureInfo.InvariantCulture, "{0:N2} {1}", this.amount, this.currency);
+        public new string ToString() => string.Format(CultureInfo.InvariantCulture, "{0:N2} {1}", this.amount, this.currency);
 
         private static void ThrowExceptionIfAmountIsNotValid(decimal amount, string value) => _ = amount < 0 ? throw new ArgumentException("add message here", value) : amount;
+
         private static void ThrowExceptionIfCurrencyIsNotValid(string currency, string value)
         {
             _ = currency ?? throw new ArgumentNullException(value, $"Can't be empty or null.");

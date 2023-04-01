@@ -66,6 +66,6 @@
         /// Returns the string that represents a current object.
         /// </summary>
         /// <returns>A string that represents the current object.</returns>
-        public override string ToString() => !this.HasIsni ? this.AuthorName : $"{this.AuthorName} (ISNI:{this.Isni})";
+        public new string ToString() => !this.HasIsni ? this.AuthorName : $"{this.AuthorName} (ISNI:{this.Isni.ToString()})";
     }
 }

@@ -60,8 +60,10 @@ namespace BookStoreCatalog
         /// Returns the string that represents a current object.
         /// </summary>
         /// <returns>A string that represents the current object.</returns>
-        public override string ToString() => this.price.ToString().Contains(",") || (this.publication.Isbn.Code is null)
-            ? string.Format(CultureInfo.InvariantCulture, $"{this.publication}, \"{this.price}\", {this.amount}")
-            : string.Format(CultureInfo.InvariantCulture, $"{this.publication}, {this.price}, {this.amount}");
+        public new string ToString()
+        {
+            string checkedIsni = $"{this.publication.ToString()}, {this.price.ToString()}, {this.amount}";
+            return this.price.ToString().Contains(',') ? checkedIsni.Replace($"{this.price.ToString()}", $"\"{this.price.ToString()}\"") : checkedIsni;
+        }
     }
 }

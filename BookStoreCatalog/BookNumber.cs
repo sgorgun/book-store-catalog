@@ -16,7 +16,10 @@
         public BookNumber(string isbnCode)
         {
             _ = isbnCode ?? throw new ArgumentNullException(nameof(isbnCode), "can't be null.");
-            this.code = ValidateCode(isbnCode) && ValidateChecksum(isbnCode) ? isbnCode : throw new ArgumentException("A code argument is invalid or a code has wrong checksum.", nameof(isbnCode));
+            this.code = ValidateCode(isbnCode) && ValidateChecksum(isbnCode)
+                ? isbnCode
+                : throw new ArgumentException("A code argument is invalid or a code has wrong checksum.",
+                    nameof(isbnCode));
         }
 
         /// <summary>
@@ -34,9 +37,12 @@
         /// Returns the string that represents a current object.
         /// </summary>
         /// <returns>A string that represents the current object.</returns>
-        public override string ToString() => this.code;
+        public new string ToString() => this.code;
 
-        private static bool ValidateCode(string isbnCode) => !string.IsNullOrWhiteSpace(isbnCode) && isbnCode.Length == 10 && isbnCode.All(term => char.IsDigit(term) || term == 'X');
+        private static bool ValidateCode(string isbnCode) => !string.IsNullOrWhiteSpace(isbnCode) &&
+                                                             isbnCode.Length == 10 && isbnCode.All(term =>
+                                                                 char.IsDigit(term) || term == 'X');
+
         private static bool ValidateChecksum(string isbnCode)
         {
             int checkSum = 0;

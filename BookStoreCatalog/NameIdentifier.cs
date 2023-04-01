@@ -11,9 +11,11 @@
         /// <param name="isniCode">A 16-digit ISNI code.</param>
         /// <exception cref="ArgumentNullException">a code argument is null.</exception>
         /// <exception cref="ArgumentException">a code argument is invalid.</exception>
-        public NameIdentifier(string isniCode)
-            => this.Code = isniCode is null ? throw new ArgumentNullException(nameof(isniCode), "a code argument is null.")
-                : ValidateCode(isniCode) ? isniCode : throw new ArgumentException("A code argument is invalid.", nameof(isniCode));
+        public NameIdentifier(string isniCode) => this.Code = isniCode is null
+            ? throw new ArgumentNullException(nameof(isniCode), "a code argument is null.")
+            : ValidateCode(isniCode)
+                ? isniCode
+                : throw new ArgumentException("A code argument is invalid.", nameof(isniCode));
 
         /// <summary>
         /// Gets a 16-digit ISNI code.
@@ -30,10 +32,7 @@
         /// Returns the string that represents a current object.
         /// </summary>
         /// <returns>A string that represents the current object.</returns>
-        public override string ToString()
-        {
-            return this.Code;
-        }
+        public new string ToString() => this.Code;
 
         private static bool ValidateCode(string isniCode) => !string.IsNullOrWhiteSpace(isniCode) && (isniCode.Length == 16 && isniCode.All(term => char.IsLetterOrDigit(term) || term == 'X'));
     }

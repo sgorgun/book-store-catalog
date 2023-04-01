@@ -97,12 +97,13 @@ namespace BookStoreCatalog
         /// Gets a publication date as a string.
         /// </summary>
         /// <returns>A publication date as a string.</returns>
-        public string GetPublicationDateString() => $"{DateTimeFormatInfo.InvariantInfo.GetMonthName(this.Published.Month)}, {this.Published.Year}";
+        public string GetPublicationDateString() =>
+            $"{DateTimeFormatInfo.InvariantInfo.GetMonthName(this.Published.Month)}, {this.Published.Year}";
 
         /// <summary>
         /// Returns the string that represents a current object.
         /// </summary>
         /// <returns>A string that represents the current object.</returns>
-        public override string ToString() => $"{this.Title} by {this.Author}";
+        public new string ToString() => $"{this.Title} by {this.Author.ToString()}";
     }
 }
