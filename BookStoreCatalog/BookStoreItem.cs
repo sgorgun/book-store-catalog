@@ -62,8 +62,8 @@ namespace BookStoreCatalog
         /// <returns>A string that represents the current object.</returns>
         public new string ToString()
         {
-            string checkedIsni = $"{this.publication.ToString()}, {this.price.ToString()}, {this.amount}";
-            return this.price.ToString().Contains(',') ? checkedIsni.Replace($"{this.price.ToString()}", $"\"{this.price.ToString()}\"") : checkedIsni;
+            string checkedIsni = $"{this.Publication.ToString()}, {this.Price.ToString()}, {this.Amount}";
+            return this.Price.ToString().Contains(',') ? checkedIsni.Replace($"{this.Price.ToString()}", $"\"{this.Price.ToString()}\"") : checkedIsni;
         }
     }
 }

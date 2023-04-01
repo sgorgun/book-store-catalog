@@ -37,7 +37,11 @@ namespace BookStoreCatalog
         public decimal Amount
         {
             get => this.amount;
-            set => ThrowExceptionIfAmountIsNotValid(value, nameof(value));
+            set
+            {
+                ThrowExceptionIfAmountIsNotValid(value, nameof(value));
+                this.amount = value;
+            }
         }
 
         /// <summary>
@@ -46,7 +50,11 @@ namespace BookStoreCatalog
         public string Currency
         {
             get => this.currency;
-            set => ThrowExceptionIfCurrencyIsNotValid(value, nameof(value));
+            set
+            {
+                ThrowExceptionIfCurrencyIsNotValid(value, nameof(value));
+                this.currency = value;
+            }
         }
 
         /// <summary>
