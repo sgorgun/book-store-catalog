@@ -11,11 +11,11 @@
         /// <param name="isniCode">A 16-digit ISNI code.</param>
         /// <exception cref="ArgumentNullException">a code argument is null.</exception>
         /// <exception cref="ArgumentException">a code argument is invalid.</exception>
-        public NameIdentifier(string isniCode) => this.Code = isniCode is null
-            ? throw new ArgumentNullException(nameof(isniCode), "a code argument is null.")
-            : ValidateCode(isniCode)
-                ? isniCode
-                : throw new ArgumentException("A code argument is invalid.", nameof(isniCode));
+        public NameIdentifier(string isniCode)
+        {
+            _ = isniCode ?? throw new ArgumentNullException(nameof(isniCode), "a code argument is null.");
+            this.Code = ValidateCode(isniCode) ? isniCode : throw new ArgumentException("A code argument is invalid.", nameof(isniCode));
+        }
 
         /// <summary>
         /// Gets a 16-digit ISNI code.

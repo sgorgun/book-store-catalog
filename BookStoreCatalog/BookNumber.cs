@@ -16,10 +16,7 @@
         public BookNumber(string isbnCode)
         {
             _ = isbnCode ?? throw new ArgumentNullException(nameof(isbnCode), "can't be null.");
-            this.code = ValidateCode(isbnCode) && ValidateChecksum(isbnCode)
-                ? isbnCode
-                : throw new ArgumentException("A code argument is invalid or a code has wrong checksum.",
-                    nameof(isbnCode));
+            this.code = ValidateCode(isbnCode) && ValidateChecksum(isbnCode) ? isbnCode : throw new ArgumentException("A code argument is invalid or a code has wrong checksum.", nameof(isbnCode));
         }
 
         /// <summary>

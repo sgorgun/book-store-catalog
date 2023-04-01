@@ -55,7 +55,7 @@ namespace BookStoreCatalog
         /// <returns>A string that represents the current object.</returns>
         public new string ToString() => string.Format(CultureInfo.InvariantCulture, "{0:N2} {1}", this.amount, this.currency);
 
-        private static void ThrowExceptionIfAmountIsNotValid(decimal amount, string value) => _ = amount < 0 ? throw new ArgumentException("add message here", value) : amount;
+        private static void ThrowExceptionIfAmountIsNotValid(decimal amount, string value) => _ = amount < 0 ? throw new ArgumentException("Amount cant be less then 0.", value) : amount;
 
         private static void ThrowExceptionIfCurrencyIsNotValid(string currency, string value)
         {
